@@ -1,11 +1,4 @@
-/**
- * This is an example of a basic node.js script that performs
- * the Client Credentials oAuth2 flow.
- *
- * For more information
- */
-
-var request = require('request'); // "Request" library
+var request = require('request');
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var app = express();
@@ -14,7 +7,7 @@ var client_id = ''; // Your client id
 var client_secret = ''; // Your secret
 var analyticsData = '';
 var port = process.env.PORT || 3000;
-// your application requests authorization
+
 var authOptions = {
   url: 'https://api.omniture.com/token',
   headers: {
@@ -25,11 +18,20 @@ var authOptions = {
   },
   json: true
 };
-function omniture() {
+var token = '';
+function tokenRetrieval() {
   request.post(authOptions, function(error, response, body) {
-  if (!error && response.statusCode === 200) {
-    // use the access token to access the Analytics API
-    var token = body.access_token;
+    if (!error && response.statusCode === 200) {
+      token = body.access_token;
+      var nIntervId;
+      nIntervId = setInterval(omniture, 15000);
+    }
+  });
+}
+tokenRetrieval();
+
+function omniture() {
+
     var options = {
       url: 'https://api3.omniture.com/admin/1.4/rest/?method=Report.Run',
       headers: {
@@ -38,7 +40,7 @@ function omniture() {
       body: 
         {
   "reportDescription":{
-    "reportSuiteID":"ajhbc",
+    "reportSuiteID":"",
     "dateFrom":"15 minutes ago",
     "dateTo":"now",
     "metrics":[
@@ -59,14 +61,15 @@ function omniture() {
       json: true
     };
     request.post(options, function(error, response, body) {
-      console.log(body);
-      analyticsData = body.report;
-      
+      if (!error && response.statusCode === 200) {
+        analyticsData = body.report;
+      }
+      else if (error && response.statusCode === 400) {
+        clearInterval(nIntervId);
+        tokenRetrieval();
+      }
     });
-  }
-});
 }
-setInterval(omniture, 15000);
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -74,7 +77,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/start', function (req, res, next) {
+app.get('/', function (req, res, next) {
   res.send({"analyticsData":analyticsData});
 });
 
