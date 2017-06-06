@@ -1,0 +1,13 @@
+{
+  "name": "realtimeproject",
+  "version": "1.0.2",
+  "description": "real time analytics",
+  "main": "app.js",
+  "dependencies": {
+    "request": "2.79.0",
+    "express": "4.14.1",
+    "cookie-parser": "1.4.3"
+  },
+  "author": "hawkins",
+  "license": "ISC"
+}
