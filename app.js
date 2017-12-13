@@ -19,11 +19,11 @@ var authOptions = {
   json: true
 };
 var token = '';
+var nIntervId;
 function tokenRetrieval() {
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       token = body.access_token;
-      var nIntervId;
       nIntervId = setInterval(omniture, 15000);
     }
   });
