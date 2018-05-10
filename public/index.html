@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Adobe Creative</title>
+    <!--Place the DTM embed tag here-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <link rel="icon" href="https://wwwimages2.adobe.com/include/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://wwwimages2.adobe.com/include/img/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://www.adobe.com/uk/creativecloud/catalog/desktop.html" />
+    <link rel="stylesheet" type="text/css" href="/css/aceui-reimagine.min.css.fps.fp-27f916d3bd61ad52ec37a1c74a009b9b.css" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+
+<body class="blackBackground">
+    <header>
+        <section>
+            <nav>
+                <div class="site-header-global-nav LayoutBreakAfter">
+                    <div class="site-header-global-menu LayoutBreakAfter"></div>
+                </div>
+
+            </nav>
+        </section>
+    </header>
+    <nav class="anchornav " data-anchornav-subnav="false" data-anchornav-breadcrumb="true">
+        <div class="productheader">
+            <i class="adobe-icon-creativecloud icon-spacing"></i>
+            <nav class="breadcrumbs">
+                <a href="/uk/creativecloud.html">Adobe Creative Cloud</a>
+                <span>/</span>
+            </nav>
+            <h1>
+                Desktop Apps
+            </h1>
+        </div>
+
+    </nav>
+
+
+    <figure class="hero2 hero2-theme-1 hero2-avoid-1   hero2-size-3 hero2-size-flex ">
+        <figcaption>
+
+            <article class="hero2-align-2 hero2-basis-1">
+                <h2 class="title">Make something amazing.</h2>
+                <p class="detail">Introducing all-new versions of your favorite desktop apps.</p>
+
+            </article>
+        </figcaption>
+        <img src="https://wwwimages2.adobe.com/content/dam/acom/en/products/creativecloud/max2016/images/cc-desktop-marquee-1440x400.jpg" alt="Make something amazing" style="background-image:url(https://wwwimages2.adobe.com/content/dam/acom/en/products/creativecloud/max2016/images/cc-desktop-marquee-1440x400.jpg);background-position:50% 50%" />
+    </figure>
+    <aside class='grid-container promo ' data-seed-promo=".pricesuffix">
+
+        <div class="grid-row">
+            <div class="grid-cols-14 grid-offset-1">
+                <p>
+                    <i class='icon-stack-base icon-align-middle promo-icon adobe-icon-creativecloud '></i> <span class="promo-intro start">Start the real-time Analytics and Target Demonstration</span><span style="display:none;"class="promo-intro started">The real-time Analytics and Target Demonstration has begun...</span>
+
+                    <span class="promo-price">
+                    <span id="PricePromo"></span>
+
+                    </span>
+                    <span class="promo-button start">
+                   
+                    <a target='_self' href='#' title="Start" class="promo-cta button" onclick="startService()">Start</a>
+
+                </span>
+
+
+                </p>
+     <script>
+                    function startService(){
+                        adobe.target.getOffer({  
+  "mbox": "startService",  
+  "success": function(offers) {          
+        adobe.target.applyOffer( { "offer": offers } );
+  },  
+  "error": function(status, error) {}
+});
+                        $('.promo-intro.start, .promo-intro.started, .promo-button.start').toggle();}
+                        </script>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <div>
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cols-14 grid-offset-1">
+                        <div class="grid-padded-v3x text-center">
+                        </div>
+                        <ul class="catalog-container col3-mobile" id="products">
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js">
+                            </script>
+
+                            <script id="products-template" type="text/x-handlebars-template">
+                            {{#each products}}
+                                <li>
+                                    <div class="catalog desktop border" data-leid-product-name={{name}}>
+                                        <div class="catalog-icon">
+                                            <a href="#"><i class={{class}}></i></a>
+                                        </div>
+
+                                        <h2>
+                                        <a href="#">{{title}}</a>
+                                        </h2>
+                                        <p>{{text}}</p>
+                                        <p class="links-bar">
+                                        <a href="https://helpx.adobe.com/uk/{{string}}.html" class="link-item">What&#39;s New</a>
+                                        </p>
+                                        <p class="button-container">
+                                            <a class="button catalog-download" target="_self" title="Learn more" href="https://www.adobe.com/uk/products/{{string}}.html">Learn more</a>
+                                        </p>
+                                    </div>
+                                </li>
+                                {{/each}}
+                            </script>
+                            <script>
+                                var productData = {
+                                    "products": [{
+                                        "name":"Photoshop",
+                                        "class":"adobe-icon-ps",
+                                        "title":"Photoshop",
+                                        "text":"Image editing and compositing",
+                                        "string":"photoshop"
+                                    },
+                                    {
+                                        "name":"LightRoom",
+                                        "class":"adobe-icon-lr",
+                                        "title":"Lightroom",
+                                        "text":"Digital photo processing and editing",
+                                        "string":"photoshop-lightroom"
+                                    },
+                                    {
+                                        "name":"Illustrator",
+                                        "class":"adobe-icon-ai",
+                                        "title":"Illustrator",
+                                        "text":"Vector graphics and illustration",
+                                        "string":"illustrator"
+                                    },
+                                    {
+                                        "name":"InDesign",
+                                        "class":"adobe-icon-id",
+                                        "title":"InDesign",
+                                        "text":"Page design and layout for print and digital publishing",
+                                        "string":"indesign"
+                                    },
+                                    {
+                                        "name":"Sparkler",
+                                        "class":"adobe-icon-color-xd-experience-design",
+                                        "title":"Experience Design",
+                                        "text":"Design and prototype user experiences for web and mobile",
+                                        "string":"experience-design"
+                                    },
+                                    {
+                                        "name":"PremierePro",
+                                        "class":"adobe-icon-pr",
+                                        "title":"Adobe Premiere Pro",
+                                        "text":"Video production and editing",
+                                        "string":"premiere"
+
+                                    },
+                                    {
+                                        "name":"AfterEffects",
+                                        "class":"adobe-icon-ae",
+                                        "title":"After Effects",
+                                        "text":"Cinematic visual effects and motion graphics",
+                                        "string":"aftereffects"
+                                    },
+                                    {
+                                        "name":"Muse",
+                                        "class":"adobe-icon-mu",
+                                        "title":"Adobe Muse",
+                                        "text":"Design and publish websites without writing code",
+                                        "string":"muse"
+                                    },
+                                    {
+                                        "name": "Dreamweaver",
+                                        "class": "adobe-icon-dw",
+                                        "title": "Dreamweaver",
+                                        "text": "Design and develop modern, responsive websites",
+                                        "string": "dreamweaver"
+                                    },
+                                    {
+                                        "name":"AcrobatPro",
+                                        "class":"adobe-icon-color-doc-cloud",
+                                        "title":"Acrobat Pro",
+                                        "text":"Create, edit, and sign PDF documents and forms",
+                                        "string":"acrobat"
+                                    },
+                                    {
+                                        "name":"EdgeAnimate",
+                                        "class":"adobe-icon-an",
+                                        "title":"Animate",
+                                        "text":"Interactive animations for multiple platforms",
+                                        "string":"animate"
+                                    },
+                                    {
+                                        "name":"Audition",
+                                        "class":"adobe-icon-au",
+                                        "title":"Adobe Audition",
+                                        "text":"Audio recording, mixing, and restoration",
+                                        "string":"audition"
+                                    },
+                                    {
+                                        "name":"Bridge",
+                                        "class":"adobe-icon-br",
+                                        "title":"Bridge",
+                                        "text":"Centralize your creative assets",
+                                        "string":"bridge"
+                                    },
+                                    {
+                                        "name":"CharacterAnimator",
+                                        "class":"adobe-icon-color-character-animator",
+                                        "title":"Character Animator",
+                                        "text":"Animate your 2D characters in real time",
+                                        "string":"character-animator"
+                                    },
+                                    {
+                                        "name": "Euclid",
+                                        "class": "adobe-icon-color-project-felix",
+                                        "title": "Project Felix",
+                                        "text": "Easy 2D and 3D compositing for photo-realistic images",
+                                        "string": "project-felix"
+                                    }]
+                                }
+
+                                var source = $("#products-template").html(),
+                                template = Handlebars.compile(source),
+                                context = productData,
+                                html = template(context);
+                                $('#products').html(html);
+                            </script>
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+
+
+        </div>
+
+        <div>
+        </div>
+
+        <div>
+        </div>
+
+    </main>
+    <footer class="flow grid-container" data-seed-footer>
+
+        <div class="grid-row">
+            <div class="grid-cols-14 grid-offset-1">
+                <nav class="footer">
+                    <ul class="footer-links">
+                        <li>
+                            <nav class="region-footer">
+                                <input id="nav-ctl-region" class="nav-ctl" type="checkbox" name="nav-ctl-region">
+                                <a href="/international/selector/" target="modal-frame" data-modal-target=".region-list .dropdown" data-modal-wrapper=".modal-region">
+                                    <i class="adobe-icon-globe icon-3x icon-align-middle"></i>Change region
+                                </a>
+                            </nav>
+                        </li>
+                        <li>
+                            <a href="//www.adobe.com/uk/products/catalog.html" title="Products" target="_self">Products</a>
+
+                        </li>
+
+
+                        <li>
+                            <a href="//www.adobe.com/uk/downloads.html" title="Downloads" target="_self">Downloads</a>
+
+                        </li>
+
+
+                        <li>
+                            <a href="//helpx.adobe.com/uk/support.html" title="Learn &amp; Support" target="_self">Learn &amp; Support</a>
+
+                        </li>
+
+
+                        <li>
+                            <a href="/uk/about-adobe.html" title="Company" target="_self">Company</a>
+
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="push">
+                        <p class="copyright">
+                            Copyright © 2016 Adobe Systems Software Ireland Ltd. All rights reserved.
+                        </p>
+                        <ul class="privacy-menu">
+                            <li>
+                                <a href="/uk/privacy.html" title="Privacy" target="_self">Privacy</a>
+
+                            </li>
+
+
+                            <li>
+                                <a href="//www.adobe.com/uk/legal/general-terms.html" title="Terms of Use" target="_self">Terms of Use</a>
+
+                            </li>
+
+
+                            <li>
+                                <a href="//www.adobe.com/uk/privacy/cookies.html" title="Cookies" target="_self">Cookies</a>
+
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" data-adchoices-pageid="323" data-seed-adchoices>
+                                    <i class="adobe-icon-adchoices"></i>AdChoices
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="resp-navwr-region">
+                    <nav class="region-list" data-seed-dropdown data-seed-georouting>
+                        <a title="click to close nav"><i class="fa-angle-left"></i></a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <a id="geotrig" href="#" target="modal-frame" data-modal-target="#geomodal"></a>
+
+    </footer>
+    
+<!--Place the DTM bottom tag here-->
+
+</body>
+
+</html>
